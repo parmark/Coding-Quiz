@@ -5,27 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coding Quiz</title>
-    <link rel="stylesheet" type="text/css" href="Assets/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="Assets/style.css">
 
 </head>
 <body>
 
+    <div class="container-fluid">
+        
+        <div class = "row">
+            <a class = "col-11" href="highscores.html">View Highscores</a>
+            <div class = "col-1" id = "countLabel">Time: <span id = "count">0</span></div>
+        </div>
+    
+        <h2 class = "text-center" id = "mainText">Coding Quiz Challenge</h2>
+    
+        <h3 class ="text-center" id = "question"> </h3>
+    
+        <p class = "text-center" id = "subText">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+    
 
-    <div class = "row">
-        <div class = "col-11" id = "highScores">View Highscores</div>
-        <div class = "col-1" id = "countLabel">Time: <span id = "count">0</span></div>
-    </div>
-    <h2 class = "text-center" id = "mainText">Coding Quiz Challenge</h2>
 
-    <h3 class ="text-center" id = "question"> </h3>
-
-    <p class = "text-center" id = "subText">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-
-    <div class = "text-center" id = "interactiveArea">
-        <button id = "start">Start Quiz</button>
-
+        <div class = "text-center btn-group-vertical ml-5 d-flex pl-5" id = "interactiveArea">
+            <button id = "start">Start Quiz</button>
+    
+        </div>
     </div>
 
     <script src = "Assets/script.js"></script>

@@ -8,24 +8,53 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container m-5">
+    <div class="container-fluid text-center col-5">
         <div class="row">
             <h2>Highscores</h2>
         </div>
         <div class="row">
-            <ul></ul>
+            <ul id = "highscores"></ul>
         </div>
-        <div class="row">
-            <div class = "col">
-                <button>
-                    <a href="index.html">Go Back</a>
+        <div class="row justigy-content-start">
+            <div class = "col-2">
+                <button class = "p-0">
+                    <a href="index.html"><small>Go Back</small></a>
                 </button>
             </div>
-            <div class = "col">
-                <button>Clear Highscores</button>
+            <div class = "col-3">
+                <button class = "p-0" id = "clearScores"><small>Clear Highscores</small></button>
             </div>
         </div>
     </div>
-    
+    <script>
+        var highscoreList = document.getElementById("highscores");
+        var clearScores = document.getElementById("clearScores");
+        
+        init();
+
+        clearScores.addEventListener("click", function() {
+            localStorage.setItem("highscoreList", null)
+            location.reload();
+        })
+
+        function init() {
+            if (JSON.parse(localStorage.getItem("highscoreList")) !== null)
+            {
+                highscores = JSON.parse(localStorage.getItem("highscoreList"))
+                highscores.sort(function(a, b) {
+                    return b[1] - a[1];
+                });
+                refreshList();
+            }
+        }
+
+        function refreshList() {
+            for (i = 0; i < highscores.length; i++) {
+                var li = document.createElement("li");
+                li.textContent = highscores[i][0] + " - " + highscores[i][1]
+                highscoreList.appendChild(li);
+            }
+        }
+    </script>
 </body>
 </html>
