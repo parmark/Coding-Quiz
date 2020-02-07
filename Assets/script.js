@@ -149,7 +149,6 @@ function startTimer() {
   var timerInterval = setInterval(function () {
     if (secondsLeft < 1 ){
       timeEl.textContent = ""
-      console.log("LOVE IS OVER")
       endQuiz();
       clearInterval(timerInterval)
     }
